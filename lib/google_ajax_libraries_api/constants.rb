@@ -6,13 +6,13 @@ module RPH
     module AjaxLibraries
       # base path to libraries on Google's servers
       BASE_PATH = 'http://ajax.googleapis.com/ajax/libs'
-      
+
       # unnecessarily complex way to set constants for each
       # of the supported libraries
       %w(jquery jqueryui prototype scriptaculous mootools dojo swfobject yui ext_core chrome_frame).each do |lib|
         const_set lib.upcase.gsub('-', '_'), lib
       end
-      
+
       # used to maintain supported library versions
       SUPPORTED_VERSIONS = {
         JQUERY        => ['1', '1.2', '1.2.3', '1.2.6', '1.3', '1.3.0', '1.3.1', '1.3.2', '1.4', '1.4.0', '1.4.1', '1.4.2'],
@@ -25,13 +25,13 @@ module RPH
         YUI           => ['2', '2.6', '2.6.0', '2.7', '2.7.0', '2.8', '2.8.0r4'],
         EXT_CORE      => ['3', '3.0', '3.0.0', '3.1', '3.1.0'],
         CHROME_FRAME  => ['1', '1.0', '1.0.0', '1.0.1', '1.0.2']
-      }      
-      
+      }
+
       # update this hash constant when new libraries are
       # added or new versions are supported
       GOOGLE_LIBRARIES = HashWithIndifferentAccess.new({
         JQUERY => OpenStruct.new(
-          :name => JQUERY, 
+          :name => JQUERY,
           :path => "#{BASE_PATH}/#{JQUERY}/VERSION/jquery.min.js",
           :pathu => "#{BASE_PATH}/#{JQUERY}/VERSION/jquery.js",
           :versions => SUPPORTED_VERSIONS[JQUERY],
@@ -45,28 +45,28 @@ module RPH
           :default_version => SUPPORTED_VERSIONS[JQUERYUI].max
         ),
         PROTOTYPE => OpenStruct.new(
-          :name => PROTOTYPE, 
+          :name => PROTOTYPE,
           :path => "#{BASE_PATH}/#{PROTOTYPE}/VERSION/prototype.js",
           :pathu => '',
           :versions => SUPPORTED_VERSIONS[PROTOTYPE],
           :default_version => SUPPORTED_VERSIONS[PROTOTYPE].max
         ),
         SCRIPTACULOUS => OpenStruct.new(
-          :name => SCRIPTACULOUS, 
+          :name => SCRIPTACULOUS,
           :path => "#{BASE_PATH}/#{SCRIPTACULOUS}/VERSION/scriptaculous.js",
           :pathu => '',
           :versions => SUPPORTED_VERSIONS[SCRIPTACULOUS],
           :default_version => SUPPORTED_VERSIONS[SCRIPTACULOUS].max
         ),
         MOOTOOLS => OpenStruct.new(
-          :name => MOOTOOLS, 
+          :name => MOOTOOLS,
           :path => "#{BASE_PATH}/#{MOOTOOLS}/VERSION/mootools-yui-compressed.js",
           :pathu => "#{BASE_PATH}/#{MOOTOOLS}/VERSION/mootools.js",
           :versions => SUPPORTED_VERSIONS[MOOTOOLS],
           :default_version => SUPPORTED_VERSIONS[MOOTOOLS].max
         ),
         DOJO => OpenStruct.new(
-          :name => DOJO, 
+          :name => DOJO,
           :path => "#{BASE_PATH}/#{DOJO}/VERSION/dojo/dojo.xd.js",
           :pathu => "#{BASE_PATH}/#{DOJO}/VERSION/dojo/dojo.xd.js.uncompressed.js",
           :versions => SUPPORTED_VERSIONS[DOJO],

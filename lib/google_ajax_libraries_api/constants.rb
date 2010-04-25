@@ -5,7 +5,7 @@ module RPH
   module Google
     module AjaxLibraries
       # base path to libraries on Google's servers
-      BASE_PATH = 'http://ajax.googleapis.com/ajax/libs'
+      BASE_PATH = 'ajax.googleapis.com/ajax/libs'
 
       # unnecessarily complex way to set constants for each
       # of the supported libraries
